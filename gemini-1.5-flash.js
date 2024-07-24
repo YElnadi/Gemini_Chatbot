@@ -19,10 +19,11 @@ function fileToGenerativePart(path, mimeType){
 async function run(){
     const model = genAI.getGenerativeModel({model: "gemini-1.5-flash"});
 
-    const prompt = ""
+    const prompt = "What is the difference between the two images? Understand whats written on the paper and explain the two images in details. "
 
     const imageParts = [
-        fileToGenerativePart("pythagoras.jpg", "image/jpeg")
+        fileToGenerativePart("pen.jpg", "image/jpeg"),
+        fileToGenerativePart("page-and-pen.jpg", "image/jpeg")
     ]
 
     const result = await model.generateContent([prompt, ...imageParts])
